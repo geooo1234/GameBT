@@ -11,12 +11,14 @@ namespace GameBT
         public int Dificultate { get; set; }
         public int[,] Harta { get; set; }
         public bool Finished { get; set; }
-        public List<Monstru> Monstri = new List<Monstru>();
+        public bool Castigator { get; set; }
+        public List<IMonstru> Monstri = new List<IMonstru>();
         public Jucator jucator;
 
         public Joc(int Dificultate, string username)
         {
             Finished = false;
+            Castigator = false;
             this.Dificultate = Dificultate;
             switch (Dificultate)
             {
@@ -33,7 +35,7 @@ namespace GameBT
                         }
                         jucator = new Jucator(Dificultate, username);
                         Harta[2, 0] = 0;
-                        Monstri.Add(new Monstru(5, 10, 10, new Pozitie { X = 3, Y = 3 }));
+                        Monstri.Add(new MonstruMare(new Pozitie { X = 2, Y = 2 }));
                         Harta[2, 2] = 2;// ca sa indentific pe harta 
                         int x, y;
                         for (int i = 0; i < 2; i++)
@@ -45,8 +47,8 @@ namespace GameBT
                                 x = rand.Next(3);
                                 y = rand.Next(3);
                             } while (Harta[x, y] != 1);
-                            Monstri.Add(new Monstru(3, 5, 5, new Pozitie { X = x, Y = y }));
-                            Harta[x, y] = 3;// adauga mosntri pe harta
+                            Monstri.Add(new MonstruMic( new Pozitie { X = x, Y = y }));
+                            Harta[x, y] = 2;// adauga mosntri pe harta
 
                         }
                         do
@@ -73,7 +75,7 @@ namespace GameBT
                         }
                         jucator = new Jucator(Dificultate, username);
                         Harta[3, 0] = 0;
-                        Monstri.Add(new Monstru(5, 10, 10, new Pozitie { X = 4, Y = 4 }));
+                        Monstri.Add(new MonstruMare( new Pozitie { X = 3, Y = 3 }));
                         Harta[3, 3] = 2;// ca sa indentific pe harta 
                         int x, y;
                         for (int i = 0; i < 5; i++)
@@ -85,8 +87,8 @@ namespace GameBT
                                 x = rand.Next(4);
                                 y = rand.Next(4);
                             } while (Harta[x, y] != 1);
-                            Monstri.Add(new Monstru(3, 5, 5, new Pozitie { X = x, Y = y }));
-                            Harta[x, y] = 3;// adauga mosntri pe harta
+                            Monstri.Add(new MonstruMic( new Pozitie { X = x, Y = y }));
+                            Harta[x, y] = 2;// adauga mosntri pe harta
 
                         }
                         for (int i = 0; i < 2; i++)
@@ -124,7 +126,7 @@ namespace GameBT
                         }
                         jucator = new Jucator(Dificultate, username);
                         Harta[4, 0] = 0;
-                        Monstri.Add(new Monstru(5, 10, 10, new Pozitie { X = 5, Y = 5 }));
+                        Monstri.Add(new MonstruMare(new Pozitie { X = 4, Y = 4 }));
                         Harta[4, 4] = 2;// ca sa indentific pe harta 
                         int x, y;
                         for (int i = 0; i < 8; i++)
@@ -136,8 +138,8 @@ namespace GameBT
                                 x = rand.Next(5);
                                 y = rand.Next(5);
                             } while (Harta[x, y] != 1);
-                            Monstri.Add(new Monstru(3, 5, 5, new Pozitie { X = x, Y = y }));
-                            Harta[x, y] = 3;// adauga mosntri pe harta
+                            Monstri.Add(new MonstruMic( new Pozitie { X = x, Y = y }));
+                            Harta[x, y] = 2;// adauga mosntri pe harta
 
                         }
                         for (int i = 0; i < 4; i++)

@@ -14,7 +14,7 @@ namespace GameBT
         public int Skill2 { get; set; }
         public int Skill3 { get; set; }
         public Pozitie Pozitie { get; set; }
-        public List<Potiuni> Potiuni { get; set; }
+        public Dictionary<Potiuni, int> Potiuni { get; set; }
         public string username;
         public Jucator(int Dificultate, string username)
         {
@@ -35,7 +35,9 @@ namespace GameBT
                     Pozitie = new Pozitie { X = 4, Y = 0 };
                     break;
             }
-            Potiuni = new List<Potiuni>();
+            Potiuni = new Dictionary<Potiuni, int>();
+            Potiuni.Add(GameBT.Potiuni.Healing, 0);
+            Potiuni.Add(GameBT.Potiuni.Toxica, 0);
 
         }
     }
